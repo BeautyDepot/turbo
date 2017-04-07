@@ -1,0 +1,128 @@
+{% schema %}
+    {    
+        "name": "home-promo",
+        "class": "featured-gallery",
+        "settings": [
+            {
+                "id": "overlay_text_color",
+                "type": "color",
+                  "label": "Overlay Text Color", 
+                  "info": "Select a color for the text on your overlay",
+                  "default": "#ffffff"
+            },
+            {
+                "id": "overlay_bg_color",
+                "type": "color",
+                  "label": "Background Overlay", 
+                  "info": "Choose a text color",
+                  "default": "#0000ff"
+            }
+        ],
+
+        "blocks": [
+
+            {
+                "name": "gallery_image",
+                "type": "image",
+                "settings": [
+                    {
+                        "id": "gallery_image",
+                        "type": "image_picker",
+                          "label": "Gallery Image", 
+                          "info": "Upload an image to be added to the image gallery on the homepage"
+                    },
+                    {
+                        "id": "overlay_text",
+                        "type": "text",
+                          "label": "Overlay Text", 
+                          "info": "add a title to your image that will apprear on the overlay"    
+                    }
+                ]     
+            }
+            
+            {
+                "name": "gallery_image",
+                "type": "image",
+                "settings": [
+                    {
+                        "id": "gallery_image",
+                        "type": "image_picker",
+                          "label": "Gallery Image", 
+                          "info": "Upload an image to be added to the image gallery on the homepage"
+                    },
+                    {
+                        "id": "overlay_text",
+                        "type": "text",
+                          "label": "Overlay Text", 
+                          "info": "add a title to your image that will apprear on the overlay"    
+                    }
+                ]     
+            }
+
+        ]            
+    }
+
+
+{% endschema %}
+
+{% for block in section.blocks%}
+    <figure>
+        <img src="{{ block.settings.gallery_image| img_url: 'grande' }}">
+        <figcaption>
+            <h3>{{block.settings.overlay_text}}</h3>
+        </figcaption>
+    </figure>
+{% endfor %}
+
+
+{% stylesheet %}
+    .featured-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin: 60px 0;
+    }
+    .featured-gallery figure {
+        width: 30%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        position: relative;
+    }
+    .featured-gallery figure:nth-of-type(3n + 3){
+        margin-right: 0;
+    }
+
+    .feature-gallery img {
+        width: 100%;
+        display: block;
+    }
+
+    .feature-gallery figcaption {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+         bottom: 0; 
+         display: none;
+    }
+
+    .featured-gallery figure:hover figcaption {
+        display: flex;
+    }
+
+    .featured-gallery figcaption h3 {
+        margin: auto;
+    }
+   
+{% endstylesheet %}
+
+<style>
+    figcaption {
+        background: {{section.settings.overlay_bg_color}};
+        color:{{section.settings.overlay_text_color}};
+    }
+</style>
+
+
+{% javascript %} 
+{% endjavascript %}
