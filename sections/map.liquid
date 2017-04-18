@@ -1,0 +1,113 @@
+{% schema %}
+    {    
+        "name": "map",
+        "class": "featured-map",
+        "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Heading",
+              "default": "Locations"
+            }
+        ],
+
+        "blocks": [
+
+            {
+                "name": "map_image",
+                "type": "image",
+                "settings": [
+                    {
+                        "id": "map_image",
+                        "type": "image_picker",
+                          "label": "Map Image", 
+                          "info": "Upload a map image to be added on the homepage"
+                    },
+                     {
+                        "id": "location_title",
+                        "type": "text",
+                          "label": "Location Title", 
+                          "info": "add a title to your map"    
+                    },
+                    {
+                        "id": "location_description",
+                        "type": "text",
+                          "label": "Location Description", 
+                          "info": "add the address of the map picture"    
+                    }
+                    
+                ]     
+            }
+
+        ]            
+    }
+{% endschema %}
+
+    <h2 class="title center">{{ section.settings.title }}</h2>
+    <div class="feature_divider"></div>
+    {% for block in section.blocks%}
+        <figure class="each-map">
+                <figcaption class="map-caption">
+                    <p class="map-description"><span class="map-title">{{block.settings.location_title}}:</span>  {{block.settings.location_description}}</p>
+                </figcaption>
+            <div class="map"> 
+                <img src="{{ block.settings.map_image| img_url: 'grande' }}" class="map-image">
+            </div>
+        </figure>
+    {% endfor %}
+
+
+
+
+{% stylesheet %}
+    .featured-map {
+        display: flex;
+        flex-wrap: wrap;
+        color: #7f8c8d;
+        background: #1b1f23;
+        margin: 0 auto;
+    }
+
+    .each-map{
+        width: 50%;
+        height: auto;
+        margin: 10px 0;
+        position: relative;
+
+    }
+    .map-description{
+        line-height: 60px;
+        margin: 0;
+        color: #7f8c8d;
+        background: #1b1f23; 
+    }
+    .map-title{
+     color: #03a196;
+    }
+
+    .map{
+        width: 50%;
+    }
+
+
+
+
+   
+@media only screen and (max-width: 768px) {
+
+
+
+}
+
+@media only screen and (max-width: 400px) {
+
+
+
+}
+{% endstylesheet %}
+
+
+
+
+{% javascript %} 
+{% endjavascript %}
