@@ -291,8 +291,8 @@
       "subtotal": "Subtotal"
     },
     "register": {
-      "title": "Create Account",
-      "sign_up": "Sign Up",
+      "title": "New Client Business Registration",
+      "sign_up": "Submit",
       "cancel": "Return to Store",
       "returning_customer_label": "Returning Customer?",
       "sign_in_html": "Login &rarr;",
@@ -300,7 +300,19 @@
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
-      "or": "or"
+      "or": "or",
+      "company": "Company",
+      "phonenumber": "Phone Number",
+      "existingClientNo": "No",
+      "existingClientYes": "Yes",
+      "clientAddress": "Address",
+      "clientCity": "City",
+      "clientPostalCode": "Postal Code",
+      "studentinput": "If Student Please Specify Where",
+      "nonindustryinput": "If Non-Industry Please Specify",
+      "promoEmailsYes": "Yes",
+      "promoEmailsNo": "No",
+      "uploadFile": "Please attach certificates (or business license if non-certified owner/manager)"
     }
   },
   "homepage": {

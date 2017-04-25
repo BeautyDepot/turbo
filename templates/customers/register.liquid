@@ -1,3 +1,15 @@
+{% comment %}
+Go to Settings -> Checkout -> Customer Accounts - check off Accounts are required
+Go to Form Options - check off Require First & Last Name, Require Company Name, Option Address 2, Require Phone Number, Shipping sames as billing default
+
+Next
+
+Go to Templates -> customers -> register.liquid: You should see all the content for the New Client Registration Form
+
+Go to Locales -> en.defauly.json: You should see all the content translations added
+
+{% endcomment %}
+
 <a name="pagecontent" id="pagecontent"></a>
 
 <div class="sixteen columns clearfix collection_nav">
@@ -6,7 +18,7 @@
 </div>
 
 <div class="section clearfix">
-  <div class="six columns offset-by-five">
+  
     <br class="clear" />
     <div id="customer">
       <!-- Create Customer -->
@@ -14,36 +26,133 @@
 
         {% form 'create_customer' %}
           {{ form.errors | default_errors }}
+          
+          <p>Beauty Depot is a wholesale distributor supplying industry professionals. Please complete the registration form below and attach a copy of your certification OR business license for prompt approval. Please allow for 24 - 48 hours for activation. If you require immediate activation, please <a href="/pages/contact">contact us.</a></p>
 
-          <div id="first_name" class="clearfix large_form">
-            <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}</label>
-            <input type="text" value="" name="customer[first_name]" id="first_name" class="large" size="30" />
+          <p><span>*</span>All fields are required</p>
+
+          <div class="clientLeft">
+
+              <select name="existingClient" required>          
+                  <option value="">Are you an existing Beauty Depot client?</option>
+                  <option value="existingClient">Yes</option>
+                  <option value="existingClient">No</option>
+              </select>  
+
+              <div id="company" class="clearfix large_form">
+                  <label for="company" class="login"></label>
+                  <input type="text" placeholder="Company" value="" name="customer[company]" id="company" class="large" size="30" required/>
+              </div>
+
+              <div id="first_name" class="clearfix large_form">
+                  <label for="first_name" class="login"></label>
+                  <input type="text" placeholder="First Name" value="" name="customer[first_name]" id="first_name" class="large" size="30" required/>
+              </div>
+
+              <div id="last_name" class="clearfix large_form">
+                  <label for="last_name" class="login"></label>
+                  <input type="text" placeholder="Last Name" value="" name="customer[last_name]" id="last_name" class="large" size="30" required/>
+              </div>
+
+              <div id="phonenumber" class="clearfix large_form">
+                  <label for="phonenumber" class="login"></label>
+                  <input type="phonenumber" placeholder="Phone Number" value="" name="customer[phonenumber]" id="phonenumber" class="large" size="30" required/>
+              </div>
+
           </div>
 
-          <div id="last_name" class="clearfix large_form">
-            <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}</label>
-            <input type="text" value="" name="customer[last_name]" id="last_name" class="large" size="30" />
-          </div>
+          <div class="clientRight">
+               <select name="profession" id="professionList" required>          
+                  <option value="">Please select profession/speciality</option>
+                  <option value="profession">Esthetician</option>
+                  <option value="profession">Clinical esthetician</option>
+                  <option value="profession">Nail technician</option>
+                  <option value="profession">Facial Therapist</option>
+                  <option value="profession">Hair Stylist</option>
+                  <option value="profession">RMT / Massage Therapist / Body Treatment Therapist</option>
+                  <option value="profession">Lash Extensionist</option>
+                  <option value="profession">Manicure Technician</option>
+                  <option value="profession">Wax Technician</option>
+                  <option value="profession">Pedicure Technician</option>
+                  <option value="profession">Physician/nurse</option>
+                  <option value="profession">Business Owner-Spa/Salon/Clinic</option>
+                  <option value="student">Student</option>
+                  <option value="nonindustry">Non-Industry</option>
+              </select> 
 
+              <div id="clientAddress" class="clearfix large_form">
+                  <label for="clientAddress" class="login"></label>
+                  <input type="clientAddress" placeholder="Address" value="" name="customer[clientAddress]" id="clientAddress" class="large" size="30" required/>
+              </div>
+              
+              <div id="clientCity" class="clearfix large_form">
+                  <label for="clientCity" class="login"></label>
+                  <input type="clientCity" placeholder="City" value="" name="customer[clientCity]" id="clientCity" class="large" size="30" required/>
+              </div>
+              
+              <select name="province" required>
+                  <option value="">Province</option>
+                  <option value="province">Alberta</option>
+                  <option value="province">British Columbia</option>
+                  <option value="province">Manitoba</option>
+                  <option value="province">New Brunswick</option>
+                  <option value="province">Newfoundland</option>
+                  <option value="province">Northwest Territories</option>
+                  <option value="province">Nova Scotia</option>
+                  <option value="province">Nunavut</option>
+                  <option value="province">Ontario</option>
+                  <option value="province">Quebec</option>
+                  <option value="province">Saskatchewan</option>
+                  <option value="province">Prince Edward Island</option>
+                  <option value="province">Yukon</option>
+              </select> 
+              
+              <div id="clientPostalCode" class="clearfix large_form">
+                  <label for="clientPostalCode" class="login"></label>
+                  <input type="clientPostalCode" placeholder="Postal Code" value="" name="customer[clientPostalCode]" id="clientPostalCode" class="large" size="30" required/>
+              </div> 
+              
+              <select name="country" required="">
+                  <option value="">Country</option>
+                  <option value="canada">Canada</option>
+              </select> 
+
+          </div>
+          
           <div id="email" class="clearfix large_form">
-            <label for="email" class="login">{{ 'customer.register.email' | t }}</label>
-            <input type="email" value="" name="customer[email]" id="email" class="large" size="30" />
+                  <label for="email" class="login"></label>
+                  <input type="email" placeholder="Email" value="" name="customer[email]" id="email" class="large" size="30" required/>
+          </div>
+
+          <div id="firstpassword" class="clearfix large_form">
+              <label for="firstpassword" class="login"></label>
+              <input type="password" placeholder="Password" value="" name="pwd1" id="firstpassword" class="large" size="30" required/>
           </div>
 
           <div id="password" class="clearfix large_form">
-            <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
-            <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
+              <label for="password" class="login"></label>
+              <input type="password" placeholder="Confirm Password" value="" name="pwd2" id="password" class="large password" size="30" required/>
+          </div> 
+
+          <div id="uploadFile" class="clearfix large_form">
+                <label for="uploadFile" class="login">{{ 'customer.register.uploadFile' | t }}</label>
+                <input type="file" value="" name="customer[uploadFile]" id="uploadFile" class="large" size="30" accept="image/*" required/>
           </div>
+
+          <select name="promoEmails" required>
+              <option value="">Would you like to recieve bi-montly promotions, new product launches or information on upcoming events?</option>
+              <option value="promoEmails">Yes</option>
+              <option value="promoEmails">No</option>
+          </select> 
 
           <div class="action_bottom">
-            <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
-            <p class="right" style="padding-top: 8px;">
+              <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
+              <p class="right" style="padding-top: 8px;">
               {{ 'customer.register.returning_customer_label' | t }} {{ 'customer.register.sign_in_html' | t | customer_login_link }}
-            </p>
+              </p>
           </div>
-
         {% endform %}
       </div><!-- /#create-customer -->
     </div>
-  </div>
+  
 </div>
