@@ -1,10 +1,9 @@
 <a name="pagecontent" id="pagecontent"></a>
 <div class="index-sections">
   {{ content_for_index }}
+  	{% section 'collection-list' %}
+  	{% section 'home-promo' %}
+  	{% section 'featured-text' %}
+  	{% section 'map' %}
+  	{% section 'newsletter' %}
 </div>
-
-{% section 'home-promo' %}
-
-{% section 'collection-slider' %}
-
-{% section 'map' %}

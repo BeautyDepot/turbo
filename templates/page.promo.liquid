@@ -1,0 +1,79 @@
+{% comment %}
+	To create this custom promo page 
+	  1) create a new Promotions Page (set page Template to page.promo) 
+	  2) Add your new page to main navigation
+	  3) Create a new Collection called Promotions
+	  	3a) set conditions to (Product tag / is equal to / Promotions)
+	  4) Add a 'Promotions' tag to all products on promotion
+	  5) Go to 'Customize Theme'
+	  	5a) click on 'promotions' in main nav on the preview page
+	  	5b) click on 'Featured Collection' and you can leave the heading blank and add the 'Promotions' collection
+{% endcomment %}
+
+
+<section class="promo-header">
+	<h1 class="collection_title promo-page-title">
+		{{ page.title }}
+	</h1>
+</section>
+
+	<div class="clearfix search_page zero-padding">
+      <br class="clear" />
+        <form class="search zero-margin" action="/search">
+          <div class="{% if sidebar %}three{% else %}five{% endif %} columns">
+            &nbsp;
+          </div>
+          <div class="four columns center">
+            {% if settings.search_option != 'everything' %}
+              <input type="hidden" name="type" value="product" />
+            {% endif %}
+            <input type="text" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+          </div>
+          <div class="two columns">
+            <input type="submit" name="submit" class="action_button" value="{{ 'general.search.submit' | t }}" style="margin-top:0" />
+          </div>
+        </form>
+      </div>
+
+{% section 'featured-collection' %}
+
+
+
+<style>
+	.promo-header{
+		background-image: url("https://static.pexels.com/photos/105234/pexels-photo-105234.jpeg");
+		background-repeat:no-repeat;
+		background-size: cover;
+		width: 100%;
+		height: 60vh;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	.promo-page-title{
+		margin-right: 50px;
+		color: {{ settings.headline_color}};
+		font-weight: {{settings.slideshow_headline_weight}};
+    	font-size: {{settings.slideshow_headline_size}}px;
+
+	}
+	.promo-page-search{
+		width: 50%;
+		float: right;
+	}
+	.search{
+		float: right;
+	}
+	.featured_products{
+		display: none;
+	}
+	.zero-padding{
+		padding: 0;
+	}
+	.zero-margin{
+		margin: 0;
+	}
+</style>
+
+
+
