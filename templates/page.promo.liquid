@@ -10,8 +10,9 @@
 	  	5b) click on 'Featured Collection' and you can leave the heading blank and add the 'Promotions' collection
 {% endcomment %}
 
-{% section 'page-banner-promo' %}
 
+{% section 'page-banner-promo' %}
+{% if customer %}
 	<div class="clearfix search_page zero-padding">
       <br class="clear" />
         <form class="search zero-margin" action="/search">
@@ -29,6 +30,10 @@
           </div>
         </form>
       </div>
+{% else %}
+	<a href="" class="logButton">Please log in to see Promotions</a>
+{% endif %}
+
 
 
 {% section 'promo-gallery' %}
