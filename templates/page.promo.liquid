@@ -10,12 +10,7 @@
 	  	5b) click on 'Featured Collection' and you can leave the heading blank and add the 'Promotions' collection
 {% endcomment %}
 
-
-<section class="promo-header">
-	<h1 class="collection_title promo-page-title">
-		{{ page.title }}
-	</h1>
-</section>
+{% section 'page-banner-promo' %}
 
 	<div class="clearfix search_page zero-padding">
       <br class="clear" />
@@ -35,9 +30,8 @@
         </form>
       </div>
 
-{% section 'featured-collection' %}
 
-
+{% section 'promo-gallery' %}
 
 <style>
 	.promo-header{

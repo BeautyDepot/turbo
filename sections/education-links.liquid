@@ -1,0 +1,105 @@
+<div class="featured-education">
+    <section class="each-education">
+            <a href="http://www.estheticinstitute.ca/" target="new" class="education">
+                <img src="https://www.codeproject.com/KB/web-image/Google_map/samplemap.JPG" class="education-image" alt="the esthetic institute photo">
+                <button class="education-button">Visit Website</button> 
+            </a>
+    </section>
+    <section class="each-education">
+            <a href="http://www.estheticinstitute.ca/programs-info" target="new" class="education">
+                <img src="https://www.codeproject.com/KB/web-image/Google_map/samplemap.JPG" class="education-image" alt="the esthetic institute eduaction photo">
+                <button class="education-button">View Programs</button> 
+            </a>
+    </section>
+</div>
+
+
+<style>
+    .featured-education {
+        display: flex;
+        flex-wrap: wrap;
+        color: #7f8c8d;
+        padding-bottom: 30px;
+        margin: 0 auto;
+    }
+    .title{
+        text-align: center;
+        width: 100%;
+    }
+
+    .each-education{
+        width: 50%;
+        height: auto;
+        margin: 10px 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .education-description{
+        margin: 0;
+        color: #7f8c8d;
+    }
+    .education-title{
+        color: #03a196;
+    }
+
+    .education{
+        width: 80%;
+        height: 300px;
+        position: relative;
+    }
+
+    .education-image{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+    }
+    .education-button{
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+
+
+
+   
+@media only screen and (max-width: 768px) {
+    .education{
+        height: 200px;
+        
+    }
+    .education-image{
+        width: 100%;
+    }
+
+
+}
+
+@media only screen and (max-width: 400px) {
+ .each-education{
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+
+}
+</style>
+
+
+
+
+{% javascript %} 
+{% endjavascript %}

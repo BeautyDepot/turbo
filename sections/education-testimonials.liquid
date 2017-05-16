@@ -1,0 +1,99 @@
+{% for block in section.blocks%}
+<div class="testimonials">
+  <div class="testimonial" style="width:100%">
+    <h6 class="testimonial-text">{{ block.settings.testimonial }}</h6>  
+    <p class="testimonial-text">{{ block.settings.name }}</p>
+    <p class="testimonial-text">{{ block.settings.store_name }}</p>  
+  </div>
+</div> 
+{% endfor %}
+
+{% schema %}
+
+{
+  "name": "Testimonials",
+  "max_blocks": 3,
+  "class": "education-testimonial-section",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "testimonial",
+          "label": "Testimonial",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quam enim, fringilla ut purus ut, pretium ullamcorper sem. In sit amet vestibulum tellus. Aenean gravida dolor eget mi bibendum semper. </p>"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Store name/URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+
+<style>
+  .education-testimonial-section{
+    position: relative;
+  }
+  .testimonial-text{
+      width: 80%;
+      margin: 0 auto;
+  }
+  .button-display-left{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .button-display-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+</style>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("testimonial");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
