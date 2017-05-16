@@ -50,6 +50,7 @@
     {% else %}
       <div class="sixteen columns">
     {% endif %}
+    
 
     <div  class="product-{{ product.id }}"
           data-free-text="{{ settings.free_price_text }}">
@@ -89,7 +90,6 @@
           {% if settings.enable_shopify_product_badges %}
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           {% endif %}
-          <div class="feature_divider"></div>
 
           {% assign product_tags = product.tags | join: ' ' %}
           {% if product_tags contains 'meta-size-chart-' %}
@@ -107,6 +107,7 @@
           {% if collection_handles contains 'coming-soon' %}
             <p class="modal_price">{{ 'collections.general.coming_soon' | t }}</p>
           {% else %}
+          {% if customer %}
             <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
               <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
               <meta itemprop="seller" content="{{ shop.name | escape }}" />
@@ -128,7 +129,11 @@
                 <span class="money">{{ variant.compare_at_price | money }}</span>
               {% endif %}
               </span>
+              {% else %}
+               <a href="" class="logButton">LOG IN TO SEE PRICE</a>
             </p>
+              {% endif %}
+
 
             {% include 'product-notify-me' %}
           {% endif %}
@@ -543,4 +548,14 @@
 }
 
 {% endschema %}
+
+<style>
+.product-quantity-box {
+  width: 50%;
+}
+
+#product-select-8624815361productproduct-template-option-0{
+  width: 44%;
+}
+</style>
 

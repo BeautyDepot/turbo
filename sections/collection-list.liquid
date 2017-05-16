@@ -1,15 +1,13 @@
 {% assign collections_per_row = section.settings.frontpage_collections_per_row %}
 
 {% assign products_length = section.blocks.size %}
-{% assign per_slide = 5 %}
+{% assign per_slide = 3 %}
 
 {% if section.settings.title != blank %}
-  <div class="sixteen columns center">
-    <h2 class="title">
+    <h2 class="title center collectionSlide">
       {{ section.settings.title }}
     </h2>
     <div class="feature_divider"></div>
-  </div>
 {% endif %}
 
 <div class="container js-product-slider homepage-product-slider full-width">
@@ -36,6 +34,15 @@
         {% endif %}
       
         <div class="gallery-cell thumbnail visible-{{ per_slide }}">
+          <div class="collectionHeadTitle">
+              {% if collection != blank %}
+                {{ collection.title }}
+              {% else %}
+                {{ "homepage.onboarding.collection_title" | t }}
+              {% endif %}
+              <br>
+              <p class="collCaption">COLLECTION</p>
+          </div>
           <div class="product-wrap">
             {% if collection_image != nil %}
               <img  src="{{ ccollection_image.src | img_url: '100x' }}"
@@ -52,7 +59,7 @@
               {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
               {{ 'collection-' | append: num | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
-
+          
             <a href="{{ collection.url }}" class="hidden-product-link">
               {% if collection != blank %}
                 {{ collection.title }}
@@ -61,15 +68,15 @@
               {% endif %}
             </a>
             {% if settings.thumbnail_hover_enabled %}
-              <div class="thumbnail-overlay">
+<!--               <div class="thumbnail-overlay">
                 <a href="{{ collection.url }}" class="hidden-product-link">
                   {% if collection != blank %}
                     {{ collection.title }}
                   {% else %}
                     {{ "homepage.onboarding.collection_title" | t }}
                   {% endif %}
-                </a>
-                <div class="info">
+                </a> -->
+<!--                 <div class="info">
                   <div class="collection-details">
                     <span class="title">
                       {% if collection != blank %}
@@ -80,8 +87,8 @@
                     </span>
                   </div>
                   <a href="{{ collection.url }}"><span class="view_all">{{ 'collections.general.view_all' | t }}</span></a>
-                </div>
-              </div>
+                </div> -->
+<!--               </div> -->
             {% endif %}
             <a class="collection-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ collection.url }}" itemprop="url">
               <span class="title">
@@ -92,6 +99,17 @@
                 {% endif %}
               </span>
             </a>
+
+            <div class="shopCollection"> 
+              <a href="{{ collection.url }}" class="hidden-product-link">
+                {% if collection != blank %}
+                  {{ collection.title }}
+                {% else %}
+                  {{ "homepage.onboarding.collection_title" | t }}
+                {% endif %}
+              </a>
+              <p>SHOP</p>
+            </div>
           </div>
         </div>
 
@@ -201,3 +219,40 @@
   }]
 }
 {% endschema %}
+
+<style>
+.collectionHeadTitle{
+  background: #333333;
+  color: #fc2167;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 20px 0px;
+}
+.gallery-cell{
+  position:relative;
+}
+
+h2.collectionSlide {
+  display:none !important;
+}
+
+.shopCollection{
+  color: black;
+  border: 1px solid black;
+  width: 30%;
+  padding: 10px;
+  position: absolute;
+  bottom: 50px;
+  left: 122.5px;
+}
+
+.shopCollection p{
+  margin-bottom: 0px;
+}
+
+p.collCaption{
+  margin-bottom:0px;
+  color:lightgrey;
+  font-size:15px;
+}
+</style>

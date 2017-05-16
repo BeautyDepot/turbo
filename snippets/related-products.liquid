@@ -20,7 +20,7 @@
     {% assign products = collections[col].products %}
     {% unless sidebar %} <div class="container"> {% endunless %}
       <div class="related-products__title">
-        <h4 class="title center">{{ 'products.product.related_items' | t }}</h4>
+        <h4 class="title center">SUGGESTED PRODUCTS</h4>
         <div class="feature_divider"></div>
       </div>
     {% unless sidebar %} </div> {% endunless %}
@@ -47,3 +47,9 @@
 
   {% endif %}
 {% endif %}
+
+<style>
+.related-products__title .feature_divider {
+  display:none;
+}
+</style>
