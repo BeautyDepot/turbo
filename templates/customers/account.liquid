@@ -3,7 +3,7 @@
 
   <header class="account-header clearfix">
     <div class="eight columns account-header-title">
-      <h1>{{ 'customer.account.details' | t }}</h1>
+      <h1>{{ 'customer.account.details' | t }} <br><a href="/account?view=edit" style="font-size: 14px;">{{ shop.metafields.locales.edit }}</a></h1>
     </div>
     <div class="eight columns account-header-logout">
       <span>{{ 'layout.customer.log_out' | t | customer_logout_link }}</span>

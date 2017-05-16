@@ -59,23 +59,26 @@
 {% endschema %}
 
 {% for block in section.blocks%}
-    <div class="home-promo-item lazyload">
+    <figure class="home-promo-item">
        <img src="{{ block.settings.gallery_image| img_url: 'grande' }}" class="home-promo-image">
-        <div class="home-promo-caption"><h3 class="home-promo-title">{{block.settings.overlay_text}}</h3></div>
+        <figcaption class="home-promo-caption"><h3 class="home-promo-title">{{block.settings.overlay_text}}</h3></figcaption>
         <button class="home-promo-button"><a href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a></button>
-    </div>
+    </figure>
 {% endfor %}
 
 
-<style>
+{% stylesheet %}
     .featured-gallery {
         -moz-column-count: 3;
         -webkit-column-count: 3;
         column-count: 3;
+        margin: 60px 0;
         width: 90%;
         margin: 0 auto;
-        display: static;
     }
+<!--     .featured-gallery .home-promo-caption:nth-of-type(3n + 3){
+        margin-right: 0;
+    } -->
 
     .home-promo-item{
         width: 100%;
@@ -86,7 +89,6 @@
     }
     .home-promo-item:first-child{
         height: 600px;
-        margin: 0 0 20px 0;
     }
 
 
@@ -104,15 +106,12 @@
         left: 0;
         width: 100%;
         height: 60px;
-        background:#333333; 
-        color: #fc2167;
     }
     .home-promo-title{
         text-align: center;
         line-height: 60px;
         margin: 0;
-        <!-- background: {{section.settings.overlay_bg_color}}; -->
-        <!-- color:{{section.settings.overlay_text_color}}; -->
+        color: white; 
 
     }
 
@@ -133,12 +132,12 @@
     }
     .home-promo-item{
         width: 100%;
-        height: 200px;
+        height: 150px;
         position: relative;
 
     }
     .home-promo-item:first-child{
-        height: 400px;
+        height: 300px;
     }
 
 }
@@ -161,8 +160,14 @@
     }
 
 }
-</style>
+{% endstylesheet %}
 
+<style>
+    figcaption {
+        background: {{section.settings.overlay_bg_color}};
+        color:{{section.settings.overlay_text_color}};
+    }
+</style>
 
 
 {% javascript %} 

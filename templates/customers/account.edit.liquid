@@ -1,0 +1,31 @@
+{% comment %}
+Go to Settings -> Checkout -> Customer Accounts - check off Accounts are required
+Go to Form Options - check off Require First & Last Name, Require Company Name, Option Address 2, Require Phone Number, Shipping sames as billing default
+
+Next
+
+Go to Templates -> customers -> register.liquid: You should see all the content for the New Client Registration Form
+
+Go to Locales -> en.defauly.json: You should see all the content translations added
+
+{% endcomment %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="sixteen columns clearfix collection_nav">
+  <h1>{{ shop.metafields.locales.edit_account }}</h1>
+  <div class="feature_divider"></div>
+</div>
+
+<div class="section clearfix">
+  
+    <br class="clear" />
+    <div id="customer">
+      <!-- Create Customer -->
+      <div id="create-customer">
+
+        {% include 'customer-fields' %}
+      </div><!-- /#create-customer -->
+    </div>
+  
+</div>

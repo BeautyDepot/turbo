@@ -10,149 +10,197 @@ Go to Locales -> en.defauly.json: You should see all the content translations ad
 
 {% endcomment %}
 
-<a name="pagecontent" id="pagecontent"></a>
+<div class="header-newClient">
+    <h1>{{ 'customer.register.title' | t }}</h1>
+</div>
+
+<p>Beauty Depot is a wholesale distributor supplying industry professionals. Please complete the registration form below and attach a copy of your certification OR business license for prompt approval. Please allow for 24 - 48 hours for activation. If you require immediate activation, please <a href="/pages/contact">contact us.</a></p>
+
+<p><span class=asterix>*</span>All fields are required</p>
 
 <div class="sixteen columns clearfix collection_nav">
-  <h1>{{ 'customer.register.title' | t }}</h1>
-  <div class="feature_divider"></div>
+    <div class="feature_divider"></div>
 </div>
 
 <div class="section clearfix">
-  
+
     <br class="clear" />
     <div id="customer">
       <!-- Create Customer -->
       <div id="create-customer">
 
-        {% form 'create_customer' %}
-          {{ form.errors | default_errors }}
-          
-          <p>Beauty Depot is a wholesale distributor supplying industry professionals. Please complete the registration form below and attach a copy of your certification OR business license for prompt approval. Please allow for 24 - 48 hours for activation. If you require immediate activation, please <a href="/pages/contact">contact us.</a></p>
-
-          <p><span>*</span>All fields are required</p>
-
-          <div class="clientLeft">
-
-              <select name="existingClient" required>          
-                  <option value="">Are you an existing Beauty Depot client?</option>
-                  <option value="existingClient">Yes</option>
-                  <option value="existingClient">No</option>
-              </select>  
-
-              <div id="company" class="clearfix large_form">
-                  <label for="company" class="login"></label>
-                  <input type="text" placeholder="Company" value="" name="customer[company]" id="company" class="large" size="30" required/>
-              </div>
-
-              <div id="first_name" class="clearfix large_form">
-                  <label for="first_name" class="login"></label>
-                  <input type="text" placeholder="First Name" value="" name="customer[first_name]" id="first_name" class="large" size="30" required/>
-              </div>
-
-              <div id="last_name" class="clearfix large_form">
-                  <label for="last_name" class="login"></label>
-                  <input type="text" placeholder="Last Name" value="" name="customer[last_name]" id="last_name" class="large" size="30" required/>
-              </div>
-
-              <div id="phonenumber" class="clearfix large_form">
-                  <label for="phonenumber" class="login"></label>
-                  <input type="phonenumber" placeholder="Phone Number" value="" name="customer[phonenumber]" id="phonenumber" class="large" size="30" required/>
-              </div>
-
-          </div>
-
-          <div class="clientRight">
-               <select name="profession" id="professionList" required>          
-                  <option value="">Please select profession/speciality</option>
-                  <option value="profession">Esthetician</option>
-                  <option value="profession">Clinical esthetician</option>
-                  <option value="profession">Nail technician</option>
-                  <option value="profession">Facial Therapist</option>
-                  <option value="profession">Hair Stylist</option>
-                  <option value="profession">RMT / Massage Therapist / Body Treatment Therapist</option>
-                  <option value="profession">Lash Extensionist</option>
-                  <option value="profession">Manicure Technician</option>
-                  <option value="profession">Wax Technician</option>
-                  <option value="profession">Pedicure Technician</option>
-                  <option value="profession">Physician/nurse</option>
-                  <option value="profession">Business Owner-Spa/Salon/Clinic</option>
-                  <option value="student">Student</option>
-                  <option value="nonindustry">Non-Industry</option>
-              </select> 
-
-              <div id="clientAddress" class="clearfix large_form">
-                  <label for="clientAddress" class="login"></label>
-                  <input type="clientAddress" placeholder="Address" value="" name="customer[clientAddress]" id="clientAddress" class="large" size="30" required/>
-              </div>
-              
-              <div id="clientCity" class="clearfix large_form">
-                  <label for="clientCity" class="login"></label>
-                  <input type="clientCity" placeholder="City" value="" name="customer[clientCity]" id="clientCity" class="large" size="30" required/>
-              </div>
-              
-              <select name="province" required>
-                  <option value="">Province</option>
-                  <option value="province">Alberta</option>
-                  <option value="province">British Columbia</option>
-                  <option value="province">Manitoba</option>
-                  <option value="province">New Brunswick</option>
-                  <option value="province">Newfoundland</option>
-                  <option value="province">Northwest Territories</option>
-                  <option value="province">Nova Scotia</option>
-                  <option value="province">Nunavut</option>
-                  <option value="province">Ontario</option>
-                  <option value="province">Quebec</option>
-                  <option value="province">Saskatchewan</option>
-                  <option value="province">Prince Edward Island</option>
-                  <option value="province">Yukon</option>
-              </select> 
-              
-              <div id="clientPostalCode" class="clearfix large_form">
-                  <label for="clientPostalCode" class="login"></label>
-                  <input type="clientPostalCode" placeholder="Postal Code" value="" name="customer[clientPostalCode]" id="clientPostalCode" class="large" size="30" required/>
-              </div> 
-              
-              <select name="country" required="">
-                  <option value="">Country</option>
-                  <option value="canada">Canada</option>
-              </select> 
-
-          </div>
-          
-          <div id="email" class="clearfix large_form">
-                  <label for="email" class="login"></label>
-                  <input type="email" placeholder="Email" value="" name="customer[email]" id="email" class="large" size="30" required/>
-          </div>
-
-          <div id="firstpassword" class="clearfix large_form">
-              <label for="firstpassword" class="login"></label>
-              <input type="password" placeholder="Password" value="" name="pwd1" id="firstpassword" class="large" size="30" required/>
-          </div>
-
-          <div id="password" class="clearfix large_form">
-              <label for="password" class="login"></label>
-              <input type="password" placeholder="Confirm Password" value="" name="pwd2" id="password" class="large password" size="30" required/>
-          </div> 
-
-          <div id="uploadFile" class="clearfix large_form">
-                <label for="uploadFile" class="login">{{ 'customer.register.uploadFile' | t }}</label>
-                <input type="file" value="" name="customer[uploadFile]" id="uploadFile" class="large" size="30" accept="image/*" required/>
-          </div>
-
-          <select name="promoEmails" required>
-              <option value="">Would you like to recieve bi-montly promotions, new product launches or information on upcoming events?</option>
-              <option value="promoEmails">Yes</option>
-              <option value="promoEmails">No</option>
-          </select> 
-
-          <div class="action_bottom">
-              <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
-              <p class="right" style="padding-top: 8px;">
-              {{ 'customer.register.returning_customer_label' | t }} {{ 'customer.register.sign_in_html' | t | customer_login_link }}
-              </p>
-          </div>
-        {% endform %}
+        {% include 'customer-fields' %}
       </div><!-- /#create-customer -->
     </div>
   
 </div>
+
+<style>
+
+/* MOBILE-FIRST RESPONSIVE */
+
+#pagecontent {
+    padding-bottom: 20px;
+}
+
+.container.main.content {
+    margin: 0px;
+}
+
+.container {
+    width: 100%;
+}
+
+.customers-register {
+    background-color: #333;
+    color: #9E9E9D;
+}
+
+div.content, div.container {
+  padding: 0px;
+}
+
+.header-newClient {
+    background-color: #00A99D;
+    padding: 30px 0px 20px;
+    margin-top: 40px;
+}
+
+h1 {
+  color: #fff;
+  padding: 0px 20px;
+}
+
+.feature_divider {
+  display: none;
+}
+
+a, span {
+    color: #00A99D;
+}
+
+p {
+    padding: 0px 20px;
+}
+
+.fields {
+    padding: 0px 20px;
+}
+
+.customr-field {
+    position: relative;
+}
+
+.customr-control-label {
+    text-transform: capitalize;
+}
+
+select {
+    background: url(https://cdn.shopify.com/s/files/1/1878/2813/files/image1_ce8b45f6-88d5-4d22-a0af-19fe576b27f4.png?5540814003194507104) no-repeat 97.6%;
+    background-size: 8px 19px;
+}
+
+div.customr-field.customr-field-radio.customr-required {
+    border: 1px solid #9e9e9D;
+    background-color: #333;
+    margin-bottom: 15px;
+}
+
+div.customr-field.customr-field-file.customr-required.customr-autocomplete{
+    border: 1px solid #9e9e9D;
+    background-color: #666;
+    margin-bottom: 15px;
+    padding: 0px 10px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], input[type="url"], input[type="tel"],input[type="number"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="range"], input[type="color"], select, textarea {
+  background-color: #666;
+  border: 1px solid #9e9e9D;
+  color: #fff;
+}
+
+input[type="text"]:active, input[type="text"]:focus, input[type="password"]:active, input[type="password"]:focus, input[type="email"]:active, input[type="email"]:focus, input[type="search"]:active, input[type="search"]:focus, input[type="url"]:active, input[type="url"]:focus, input[type="tel"]:active, input[type="tel"]:focus, input[type="number"]:active, input[type="number"]:focus, input[type="date"]:active, input[type="date"]:focus, input[type="month"]:active, input[type="month"]:focus, input[type="week"]:active, input[type="week"]:focus, input[type="time"]:active, input[type="time"]:focus, input[type="range"]:active, input[type="range"]:focus, input[type="color"]:active, input[type="color"]:focus, select:active, select:focus, textarea:active, textarea:focus {
+  color: #fff;
+}
+
+label[for="customr38"], label[for="customr27"], label[for="customr28"], label[for="customr29"], label[for="customr31"], label[for="customr30"], label[for="customr38"], label[for="customr32"], label[for="customr39"], label[for="customr37"], label[for="customr47"], label[for="customr33"], label[for="customr44"], label[for="customr34"], label[for="customr43"], label[for="customr40"], label[for="customr41"], label[for="customr42"], label[for="customr45"], label[for="customr46"], label[for="customr35"], label[for="customr48"] {
+    display: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+}
+
+div[data-customr-field-id="customr50"] {
+    border: 1px solid #9e9e9D;
+    background-color: #666;
+    margin-bottom: 15px;
+    padding: 0px 10px;
+}
+
+div[data-customr-field-id="customr49"] {
+    border: 1px solid #9e9e9D;
+    background-color: #666;
+    margin-bottom: 15px;
+    padding: 0px 10px;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+label[for="customr50"], label[for="customr49"], label[for="customr36"]  {
+    color: #fff;
+    font-family: Arial;
+    font-weight: normal;
+    width: 100%;
+}
+
+.form-footer {
+    padding: 0px 20px;
+}
+
+ul {
+    list-style: none;
+
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 769px) {
+
+    .header-newClient {
+        margin-top: 0px;    
+    }
+
+    h1 {
+        padding: 20px 40px 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    h1 {
+        padding: 20px 40px 20px;
+    }
+}
+
+</style>
+
+
+{% javascript %} 
+
+
+{% endjavascript %}
