@@ -50,7 +50,7 @@
         </a>
       {% include "product-details" %}
     </div>
-    <a class="product-info__caption <!-- {% if settings.thumbnail_hover_enabled %}hidden{% endif %} -->" href="{{ product.url | within: collection }}" itemprop="url">
+    <a class="product-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ product.url | within: collection }}" itemprop="url">
       {% include "product-info" %}
     </a>
   </div>
