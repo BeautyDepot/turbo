@@ -1,60 +1,30 @@
-{% schema %}
-    {    
-        "name": "map",
-        "class": "featured-map",
-        "settings": [
-            {
-              "type": "text",
-              "id": "title",
-              "label": "Heading",
-              "default": "Locations"
-            }
-        ],
-
-        "blocks": [
-
-            {
-                "name": "map_image",
-                "type": "image",
-                "settings": [
-                    {
-                        "id": "map_image",
-                        "type": "image_picker",
-                          "label": "Map Image", 
-                          "info": "Upload a map image to be added on the homepage"
-                    },
-                     {
-                        "id": "location_title",
-                        "type": "text",
-                          "label": "Location Title", 
-                          "info": "add a title to your map"    
-                    },
-                    {
-                        "id": "location_description",
-                        "type": "text",
-                          "label": "Location Description", 
-                          "info": "add the address of the map picture"    
-                    }
-                    
-                ]     
-            }
-
-        ]            
-    }
-{% endschema %}
-
-    <h2 class="title center">{{ section.settings.title }}</h2>
+<div class="featured-map">
+    <h2 class="title center">
+      Locations
+    </h2>
     <div class="feature_divider"></div>
-    {% for block in section.blocks%}
-        <figure class="each-map">
-                <figcaption class="map-caption">
-                    <p class="map-description"><span class="map-title">{{block.settings.location_title}}:</span>  {{block.settings.location_description}}</p>
-                </figcaption>
-            <div class="map"> 
-                <img src="{{ block.settings.map_image| img_url: 'grande' }}" class="map-image">
+    <section class="each-map">
+            <div class="map-caption">
+                <p class="map-description" >South Location: <a href="https://www.google.ca/maps/place/Beauty+Depot/@50.997955,-114.0650157,17z/data=!3m1!4b1!4m5!3m4!1s0x537170f827e7d8c1:0x83fcf83af9e8a29f!8m2!3d50.997955!4d-114.062827" target="new">108-61 Ave, SW Calgary, Alberta T2H 0B2</a></p>
             </div>
-        </figure>
-    {% endfor %}
+        <div class="map">
+            <a href="https://www.google.ca/maps/place/Beauty+Depot/@50.997955,-114.0650157,17z/data=!3m1!4b1!4m5!3m4!1s0x537170f827e7d8c1:0x83fcf83af9e8a29f!8m2!3d50.997955!4d-114.062827" target="new">
+                <img src="https://www.codeproject.com/KB/web-image/Google_map/sampleMap.JPG" class="map-image" alt="south location map image"> 
+            </a>
+        </div>
+    </section>
+    <section class="each-map">
+            <div class="map-caption">
+                 <p class="map-description" >North Location: <a href="https://www.google.ca/maps/place/1351+32+Ave+NE,+Calgary,+AB+T2E+7Z5/@51.0808997,-114.0271016,17z/data=!3m1!4b1!4m5!3m4!1s0x5371651bdd53bcf3:0xe25d2ca4a71bc763!8m2!3d51.0808997!4d-114.0249129" target="new">1351 32nd Ave, NE Calgary, Alberta T2E 7Z5</a></p>
+            </div>
+        <div class="map">
+            <a href="https://www.google.ca/maps/place/1351+32+Ave+NE,+Calgary,+AB+T2E+7Z5/@51.0808997,-114.0271016,17z/data=!3m1!4b1!4m5!3m4!1s0x5371651bdd53bcf3:0xe25d2ca4a71bc763!8m2!3d51.0808997!4d-114.0249129" target="new">
+                <img src="https://www.codeproject.com/KB/web-image/Google_map/sampleMap.JPG" class="map-image" alt="south location map image"> 
+            </a>
+        </div>
+    </section>
+</div>
+
 
 
 
@@ -64,8 +34,12 @@
         display: flex;
         flex-wrap: wrap;
         color: #7f8c8d;
-        background: #1b1f23;
+        padding-bottom: 30px;
         margin: 0 auto;
+    }
+    .title{
+        text-align: center;
+        width: 100%;
     }
 
     .each-map{
@@ -73,20 +47,28 @@
         height: auto;
         margin: 10px 0;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
     }
     .map-description{
-        line-height: 60px;
         margin: 0;
         color: #7f8c8d;
-        background: #1b1f23; 
+    }
+    .map-caption{
+        width: 80%;
     }
     .map-title{
-     color: #03a196;
+        color: #03a196;
     }
 
     .map{
-        width: 50%;
+        width: 80%;
+    }
+    .map-image{
+        width: 100%;
+        height: 300px;
     }
 
 
@@ -94,13 +76,25 @@
 
    
 @media only screen and (max-width: 768px) {
-
+ .map-image{
+        width: 100%;
+        height: 200px;
+    }
 
 
 }
 
 @media only screen and (max-width: 400px) {
+ .each-map{
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
+    }
 
 
 }

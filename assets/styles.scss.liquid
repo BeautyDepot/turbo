@@ -42,6 +42,7 @@ Description: Shopify Theme (https://www.shopify.com/?ref=out-of-the-sandbox)
   #Font-Face
   #Custom Styles */
 
+
 /* #Mixins
 ================================================== */
 @mixin background-opacity($color, $opacity: 0.5) {
@@ -868,7 +869,7 @@ body.is-active {
   background-color: {{ settings.top_bar_bg_color }};
   padding: 0 0 0 10px;
   .social_icons {
-    float: right;
+    float: left;
     margin: 0;
     padding-left: 10px;
     li {
@@ -1337,7 +1338,7 @@ input[type="submit"].guest_button:hover {
 }
 
 .sticky_nav div.logo img {
-  width: 40%;
+  width: 60%;
 }
 
 .dropdown_container {
@@ -2776,7 +2777,7 @@ input.contact_email[type="email"] {
 }
 
 .newsletter-description {
-  width: 50%;
+  width: 60%;
   padding: 30px;
   margin: 0 auto;
 
@@ -4445,10 +4446,9 @@ img.footer-logo {
   height: 1px;
 }
 
-.footer .footer-menu-wrap h4 {
+.footer .footer-menu-wrap h6 {
   margin: 0;
-  padding: 0;
-  text-align: center;
+  padding: 0 0 5px 0;
   color: {{ settings.headline_footer_text_color }};
   line-height: 1.5;
   @include respond-to('medium'){
@@ -4458,7 +4458,7 @@ img.footer-logo {
   }
 }
 
-.footer .footer-menu-wrap h4 > span {
+.footer .footer-menu-wrap h6 > span {
   display: none;
   @include respond-to('medium'){
     display: inline-block;
@@ -4518,36 +4518,6 @@ img.footer-logo {
   margin-bottom: 0;
   text-align: left;
 }
-/*start of custom footer---------------------------------------------------------*/
-
-.custom-footer{
-  display: flex;
-  justify-content: space-between;
-  padding: 5% 0;
-  width: 100%;
-  .custom-footer-item{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .custom-footer-text{
-      color: #03a196;
-      .custom-footer-link{
-        color: grey;
-      }
-    }
-  }
-  .address{
-    width: 33%;
-  }
-}
-@media (max-width: 480px){
-  .custom-footer{
-    display: none;
-  }
-}
-
-/*end of custom footer---------------------------------------------------------*/
 
 .footer_credits {
   border-top: 1px solid {{ settings.sub_footer_border_color }};
@@ -6384,9 +6354,6 @@ footer .footer-social-icons--mobile.columns {
 footer .social_icons {
   display: block;
   margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   @include respond-to('medium'){
     padding-left: 0;
     text-align: center;
@@ -6394,21 +6361,17 @@ footer .social_icons {
 }
 
 footer .social_icons a, footer .social_icons a:visited {
+  color: {{ settings.sub_footer_text_color }};
   font-size: 22px;
-  color: #03a196;
-  border: 1px solid #03a196;
-  border-radius: 50%;
-  padding: 5px;
   display: inline-block;
-  margin: 0 0.5em;
+  margin-bottom: 1em;
   @include respond-to('small'){
-    margin: 0;
+    margin-bottom: 0;
   }
 }
 
 footer .social_icons a:active, footer .social_icons a:hover {
   color: {{ settings.sub_footer_link_color_hover }};
-  border: 1px solid {{ settings.sub_footer_link_color_hover }};
   font-size: 22px;
 }
 
@@ -8179,35 +8142,17 @@ $delay: 0;
     copy your FontName into code below and remove
     comment brackets */
 
-/*  @font-face {
-      font-family: 'FontName';
-      src: url('FontName.eot');
-      src: url('FontName.eot?iefix') format('eot'),
-           url('FontName.woff') format('woff'),
-           url('FontName.ttf') format('truetype'),
-           url('FontName.svg#webfontZam02nTh') format('svg');
+ @font-face {
+      font-family: 'Libre Bodoni';
+      src: url('./LibreBodoni-Bold.otf');
       font-weight: normal;
       font-style: normal; }
-*/
+
+ .headline {
+    font-family: 'Libre Bodoni' !important;
+  }
+
 
 
 /* #Custom Styles
 ================================================== */
-
-
-
-
-/* New Client Form
-================================================== */
-
-.clientLeft {
-  float: left;
-  width: 50%;
-}
-
-.clientRight {
-  float: right;
-  width: 50%;
-}
-
-
