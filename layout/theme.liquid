@@ -65,6 +65,12 @@
     {% assign feature_image = true %}
   {% elsif template contains "banner" %}
     {% assign feature_image = true %}
+  {% elsif template contains "promo" %}
+    {% assign feature_image = true %}
+  {% elsif template contains "about" %}
+    {% assign feature_image = true %}
+  {% elsif template contains "education" %}
+    {% assign feature_image = true %}
   {% else %}
     {% assign feature_image = false %}
   {% endif %}

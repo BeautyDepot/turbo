@@ -114,7 +114,7 @@
           <div class="custom-footer-text" >Toll Free:<a href="tel:+18006656520">1-800-665-6520</a></div>
         </div><!-- contact -->
         <div class="custom-footer-item hours">
-          <h5>Ours of Operatons</h5>
+          <h5>Hours of Operatons</h5>
           <div class="custom-footer-text" >Monday - Friday: <span class="custom-footer-link">9AM to 5PM</a></div>
           <div class="custom-footer-text" >Saturday: <span class="custom-footer-link">10AM to 3PM</a></div>
           <div class="custom-footer-text" >Closed <span class="custom-footer-link">Sundays & Holidays</a></div>
@@ -129,8 +129,8 @@
           {% if section.settings.display_designed_by %}
             {{ 'layout.general.designer_credits_html' | t }}
           {% endif %}
-          <a href="/pages/privacy-policy-disclaimer">PRIVACY POLICY - DISCLAIMER.   </a>
-          {{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }}
+          <a class="custom-footer-text" href="/pages/privacy-policy-disclaimer">PRIVACY POLICY - DISCLAIMER.   </a>
+          | Developed By <a href="http://www.erinwise.ca/" target="new">E.Wise</a>, <a href="http://www.janellucia.com/" target="new">J.Lucia</a> & <a href="http://erincarrieres.com/" target="new">E.Carrieres</a>
         </p>
 
         {% if section.settings.display_payment_methods %}
@@ -301,3 +301,80 @@
 }
 
 {% endschema %}
+
+<style>
+  .footer-menu-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  .custom-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .custom-footer-item{
+    /*width: 30%;*/
+  }
+  .custom-footer-text{
+    color:#00A99D;
+  }
+
+  .footer-social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  footer .social_icons a, footer .social_icons a:visited {
+  color:#00A99D;
+  display: inline-block;
+  margin: -0.5em 0.5em 0.5em 0.5em;
+  border: 1px solid #00a99d;
+  border-radius: 50%;
+  padding: 5px;
+  @include respond-to('small'){
+    margin-bottom: 0;
+  }
+}
+
+.credits {
+    text-align: center;
+    float: inherit;
+    padding-top: 50px;
+    }
+
+
+
+  .icon-down-arrow{
+    display: none !important;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+
+  .custom-footer{
+    flex-direction: column;
+  }
+   .custom-footer-item{
+    text-align: center;
+  }
+  .hours{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .address, .contact{
+    display: none;
+  }
+
+
+}
+</style>
