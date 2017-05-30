@@ -9,7 +9,6 @@
         <h2 class="title">
           {{ section.settings.title }}
         </h2>
-        <div class="feature_divider"></div>
       {% endif %}
 
       <div class="{{ section.settings.text_size }}">
@@ -27,13 +26,6 @@
   </div>
 </div>
 
-<style>
-  @media only screen and (max-width: 768px) {
-    .featured_text {
-      text-align: {{ section.settings.text_alignment }};
-    }
-  }
-</style>
 
 {% schema %}
   {
@@ -115,4 +107,23 @@
   img{
     width: 100%;
   }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .feature_divider {
+      display: none;
+  }
+
+  .columns {
+      margin: 0px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .featured_text {
+      text-align: {{ section.settings.text_alignment }};
+    }
+  }
+
 </style>
