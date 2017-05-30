@@ -2,8 +2,7 @@
 
 <div class="section clearfix">
   <div class="sixteen columns">
-    <h1>{{ 'cart.general.title' | t }}</h1>
-    <div class="feature_divider"></div>
+      <h1>{{ 'cart.general.title' | t }}</h1>
   </div>
 </div>
 
@@ -22,7 +21,7 @@
 
   <form action="/cart" method="post" id="cart_form">
     <div class="section clearfix">
-      <div class="ten columns">
+      <div class="nine columns">
         {% for item in cart.items %}
           <div class="section clearfix">
             <div class="three columns alpha">
@@ -39,7 +38,7 @@
               </a>
             </div>
 
-            <div class="seven columns omega cart_content_info">
+            <div class="five columns omega cart_content_info">
               <h3>
                 <a href="{{ item.url }}">{{ item.product.title }}</a>
               </h3>
@@ -88,7 +87,7 @@
         {% endfor %}
       </div>
 
-      <div class="five columns offset-by-one">
+      <div class="five columns">
         <div class="section clearfix">
           <div class="subtotal">
             <h2>
@@ -156,10 +155,11 @@
           </div>
         </div>
       </div>
+      {% include 'cart-shipping-calculator' %}
     </div>
   </form>
 
-  {% include 'cart-shipping-calculator' %}
+  
 {% endif %}
 
 {% schema %}
@@ -187,3 +187,46 @@
 }
 
 {% endschema %}
+
+<style>
+
+/*MOBILE-FIRST*/
+
+input[type="button"].get-rates.action_button, input[type="submit"] {
+    background: #ff1968;
+}
+
+input#checkout.action_button.add_to_cart {
+    background: #ff1968;
+} 
+
+input[type="text"] {
+    background: #333;
+    color: #fff;
+} 
+
+select {
+    color: #fff;
+}  
+
+h1 {
+    padding: 30px 0px;
+    background: #231f20;
+    color: #00A99D;
+}
+
+@media only screen and (min-width: 768px) {
+
+h1 {
+    padding: 70px 0px;
+}
+
+div.content {
+    padding-top: 0px;
+}
+
+div.section {
+    margin-top: 0px;
+}
+
+</style>

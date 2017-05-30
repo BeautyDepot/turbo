@@ -13,7 +13,7 @@
 
 {% section 'page-banner-promo' %}
 {% if customer %}
-	<div class="clearfix search_page zero-padding">
+	<!--<div class="clearfix search_page zero-padding">
       <br class="clear" />
         <form class="search zero-margin" action="/search">
           <div class="{% if sidebar %}three{% else %}five{% endif %} columns">
@@ -29,7 +29,7 @@
             <input type="submit" name="submit" class="action_button" value="{{ 'general.search.submit' | t }}" style="margin-top:0" />
           </div>
         </form>
-      </div>
+      </div>-->
 
 
 
@@ -41,6 +41,14 @@
 {% endif %}
 
 <style>
+	.center {
+    	text-align: right;
+  	}
+
+  	.caption .headline {
+      	font-size: 45px;
+  	}
+
 	.promo-header{
 		background-image: url("https://static.pexels.com/photos/105234/pexels-photo-105234.jpeg");
 		background-repeat:no-repeat;
