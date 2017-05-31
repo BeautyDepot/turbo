@@ -2,4 +2,36 @@
   The contents of the collection.liquid template can be found in /sections/collection-template.liquid
 {% endcomment %}
 
+{% if collection.handle contains 'promotions' %}
+ {% section 'banner-collection-lash-and-brow' %}
+ {% elsif collection.handle contains "collection" %}
+     {% section 'banner-collection-lash-and-brow' %}
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+  {% elsif collection.handle contains "collection" %}
+     <img class="collection-header-custom" src="http://media.istockphoto.com/photos/pretty-red-haired-girl-picture-id520841672?k=6&m=520841672&s=612x612&w=0&h=DSuAGOcSf3Gez47o67pA1YdYF-BxC4xN_gthHRa-uls=" alt="">
+ {% else %}
+    {% assign feature_image = false %}
+  {% endif %}
+
 {% section 'collection-template' %}
+
+
+
+
+<style>
+	.collection-header-custom{
+		width: 100%;
+		height: 300px;
+	}
+</style>
