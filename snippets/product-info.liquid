@@ -1,5 +1,5 @@
-<div class="product-details">
-  <span class="title" itemprop="name">{{ product.title }}</span>
+<div class="product-details-custom">
+  <span class="title-custom" itemprop="name">{{ product.title }}</span>
   {% if settings.enable_shopify_collection_badges %}
     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   {% endif %}
@@ -10,7 +10,7 @@
   {% if collection_handles contains 'coming-soon' %}
     <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
   {% else %}
-    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <span class="price-custom {% if product.compare_at_price_max > product.price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
       <meta itemprop="price" content="{{ product.price_min | money_without_currency }}" />
       <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
       <meta itemprop="seller" content="{{ shop.name | escape }}" />
@@ -37,6 +37,3 @@
     </span>
   {% endif %}
 </div>
-
-
-

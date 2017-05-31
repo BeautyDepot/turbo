@@ -147,14 +147,13 @@
           {{ link_image }}
           <a href="{{ link.url }}" title="{{ link_title }}" class="hidden-product-link">{{ link_title }}</a>
           {% if settings.thumbnail_hover_enabled %}
-              <div class="thumbnail-overlay">
-              <a href="{{ link.url }}" title="{{ link_title }}" class="hidden-product-link">{{ link_title }}</a>
-                <div class="info">
-                    <div class="collection-details">
-                      <span class="title">{{ link_title }}</span>
-                    </div>
-                    <a href="{{ link.url }}" title="{{ link_title }}"><span class="view_all">{{ 'collections.general.view_all' | t }}</span></a>
+              <div class="thumbnail-overlay-custom">
+                <a href="{{ collection.url }}" title="{{ collection_title }}" class="hidden-product-link">{{ collection_title }}</a>
+                <div class="collection-details-custom">
+                  <span class="title-custom">{{ collection.title }}</span>
+                  <span class="price-custom">Collection</span>
                 </div>
+                <a href="{{ collection.url }}" title="{{ collection_title }}"><span class="view_all-custom">Shop</span></a>
               </div>
           {% endif %}
           <a class="collection-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ link.url }}" itemprop="url">
