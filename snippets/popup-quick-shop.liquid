@@ -29,12 +29,14 @@
       <h3 class="js-product-title"></h3>
       <div class="feature_divider"></div>
 
+    {% if customer %}  
       <p class="modal_price">
         <span class="sold_out js-sold-out"></span>
         <span class="current_price js-current-price"><span class="money"></span></span>
         <span class="was_price js-was-price"><span class="money"></span></span>
       </p>
       <span class="js-notify-form"></span>
+    {% endif %}
 
       {% if settings.quick_shop_product_description_position == "top" %}
         {% if settings.quick_shop_full_description %}
@@ -47,6 +49,8 @@
           </p>
         {% endif %}
       {% endif %}
+
+
 
       <span class="js-product-form"></span>
 
